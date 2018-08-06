@@ -1,0 +1,25 @@
+.wrapper { /* TGO: Magic rules to center the objects and padding */
+	padding-left: 18px;
+	padding-right: 18px;
+	overflow: hidden; /* TGO: It is combined with the gutters, negative padding, select into row.css */
+	max-width: 1236px; /* TGO: 36 pixels more because of the padding right and left */
+	margin-left: auto;
+	margin-right: auto;
+
+	&--medium {
+		max-width: 976px;
+	}
+
+	.wrapper { /* TGO: This wrapper refers to a wrapper inside another wrapper in the html file. In this case permit not duplicate the padding in small screams. */
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	&--b-margin {
+		margin-bottom: 1rem;
+
+		@mixin atSmall {
+			margin-bottom: 3.875rem;
+		}
+	}
+}

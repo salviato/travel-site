@@ -1,0 +1,47 @@
+.row {
+
+	@mixin clearfix; /* TGO: Used to clear the float element at the browser */
+	
+	/* TGO: This is used to create a negative padding in the row__8 and adjust
+			the browser. It is combined with a overflow element into wrapper.css */
+	&--gutters {
+		padding-right: -65px;
+	}
+
+	/* TGO: This selector will take all divs into the row div.
+			Note: An element box-sizing was added into global.css to calculate
+			this padding into the width element below. It used to not exceed and
+			divide the space in the browser */
+	&--gutters > div {
+		padding-right: 65px;
+	}
+
+	&__b-margin-until-medium { /* TGO: It will put a bottom margin only in small browsers */
+			margin-bottom: 1rem;
+	}
+
+	@mixin atMedium {
+
+		&__b-margin-until-medium {
+			margin-bottom: 0;
+		}
+		
+		&__medium-4 { /* TGO: Method float is used to align the colums side by side */
+			float: left;
+			width: 33.33%;
+		}
+
+		&__medium-4--larger { /* TGO: Personalise the width to get a little large */
+			width: 37%;
+		}
+
+		&__medium-8 {
+			float: left;
+			width: 66.66%;
+		}
+
+		&__medium-8--smaller {
+			width: 63%;
+		}
+	}
+}

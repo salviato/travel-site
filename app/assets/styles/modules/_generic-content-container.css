@@ -1,0 +1,18 @@
+.generic-content-container {
+	
+	/* TGO: This is not BEM but in this case of content is ok. It select all
+			paragrafs into the generic-content-container div */
+	p {
+		line-height: 1.65; /* TGO: This property do not need rem or px or em */
+		margin: 1.8rem 0;
+		/* TGO: There is no font-size because the size is 1rem, defaut */
+
+		@mixin atSmall {
+			font-size: 1.125rem;
+		}
+	}
+
+	p a {
+		font-weight: 700;
+	}
+}
