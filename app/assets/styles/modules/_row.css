@@ -5,7 +5,11 @@
 	/* TGO: This is used to create a negative padding in the row__8 and adjust
 			the browser. It is combined with a overflow element into wrapper.css */
 	&--gutters {
-		padding-right: -65px;
+		margin-right: -65px;
+	}
+
+	&--gutters-large {
+		margin-right: -100px;
 	}
 
 	/* TGO: This selector will take all divs into the row div.
@@ -14,6 +18,10 @@
 			divide the space in the browser */
 	&--gutters > div {
 		padding-right: 65px;
+	}
+
+	&--gutters-large > div {
+		padding-right: 100px;
 	}
 
 	&__b-margin-until-medium { /* TGO: It will put a bottom margin only in small browsers */
@@ -33,6 +41,11 @@
 
 		&__medium-4--larger { /* TGO: Personalise the width to get a little large */
 			width: 37%;
+		}
+
+		&__medium-6 {
+			float: left;
+			width: 50%;
 		}
 
 		&__medium-8 {

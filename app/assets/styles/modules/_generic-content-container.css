@@ -3,9 +3,10 @@
 	/* TGO: This is not BEM but in this case of content is ok. It select all
 			paragrafs into the generic-content-container div */
 	p {
+		font-weight: 300;
 		line-height: 1.65; /* TGO: This property do not need rem or px or em */
-		margin: 1.8rem 0;
-		/* TGO: There is no font-size because the size is 1rem, defaut */
+		margin: 0 0 1.8rem 0;
+		/* font 1rem */	   /* TGO: There is no font-size because the size is 1rem, defaut */
 
 		@mixin atSmall {
 			font-size: 1.125rem;
