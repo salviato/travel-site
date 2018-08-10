@@ -2,6 +2,10 @@
 
 	@mixin clearfix; /* TGO: Used to clear the float element at the browser */
 	
+	&--t-padding {
+		padding-top: 80px;
+	}
+
 	/* TGO: This is used to create a negative padding in the row__8 and adjust
 			the browser. It is combined with a overflow element into wrapper.css */
 	&--gutters {
@@ -10,6 +14,10 @@
 
 	&--gutters-large {
 		margin-right: -100px;
+	}
+
+	&--gutters-small {
+		margin-right: -45px;
 	}
 
 	/* TGO: This selector will take all divs into the row div.
@@ -22,6 +30,10 @@
 
 	&--gutters-large > div {
 		padding-right: 100px;
+	}
+
+	&--gutters-small > div {
+		padding-right: 45px;
 	}
 
 	&__b-margin-until-medium { /* TGO: It will put a bottom margin only in small browsers */
@@ -57,4 +69,62 @@
 			width: 63%;
 		}
 	}
+
+	@mixin atLarge {
+
+		&__b-margin-until-large {
+			margin-bottom: 0;
+		}
+		
+		&__large-4 { /* TGO: Method float is used to align the colums side by side */
+			float: left;
+			width: 33.33%;
+		}
+
+		&__large-4--larger { /* TGO: Personalise the width to get a little large */
+			width: 37%;
+		}
+
+		&__large-6 {
+			float: left;
+			width: 50%;
+		}
+
+		&__large-8 {
+			float: left;
+			width: 66.66%;
+		}
+
+		&__large-8--smaller {
+			width: 63%;
+		}
+	}
+
+	/* TGO Start: This atMidium is not used but stay here for the future */
+	/* TGO Start: Begin equal height rules */
+	&--equal-height-at-medium {
+		@mixin atMedium {
+			display: flex; /* TGO: It will change all the coluns to stay with same space */
+		}
+
+		& > div {
+			float: none; /* TGO: It will cancel the float rule */
+			display: flex; /* TGO: It will change all the coluns to stay with same space */
+		}
+	}
+	/* TGO End: Begin equal height rules */
+	/* TGO End: This atMidium is not used but stay here for the future */
+
+	/* TGO Start: Begin equal height rules */
+	&--equal-height-at-large {
+		@mixin atLarge {
+			display: flex; /* TGO: It will change all the coluns to stay with same space */
+		}
+
+		& > div {
+			float: none; /* TGO: It will cancel the float rule */
+			display: flex; /* TGO: It will change all the coluns to stay with same space */
+		}
+	}
+	/* TGO End: Begin equal height rules */
 }

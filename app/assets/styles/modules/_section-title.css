@@ -11,6 +11,10 @@
 		font-weight: 500;
 	}
 
+	&--blue {
+		color: $mainBlue;
+	}
+
 	/* TGO: Icon rules with the mixin plays together to centralize icon in small screen
 			and get spaces properties on large screens */
 	&__icon {
@@ -20,6 +24,8 @@
 		margin-bottom: .6rem;
 
 		@mixin atSmall {
+			position: relative; /* TGO Start: Rule to position the icon a little down */
+			top: 8px; /* TGO End: Rule to position the icon a little down */
 			margin-right: .5rem;
 			margin-left: 0;
 			margin-bottom: 0;

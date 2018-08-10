@@ -1,0 +1,43 @@
+.testimonials {
+	background-color: rgba(255, 255, 255, .8);
+	padding: 0 18px 1px 18px;
+	margin-bottom: 98px;
+
+	@mixin atLarge {
+		padding: 0 1.8125rem 1px 1.8125rem; /* TGO: 1px of bottom padding represents more defaut padding */
+		margin-bottom: 0;
+	}
+
+	&--last { /* TGO: Eliminate the margin botton of the last testimonial */
+		margin-bottom: 0;
+	}
+
+	/* TGO Start: Rules together to form the image effects */
+	&__photo {
+		border-radius: 80px; /* Form image circle */
+		overflow: hidden; /* Works together with border-radius */
+		width: 160px; /* Image size to auxiliar in the circle effect */
+		height: 160px; /* Image size to auxiliar in the circle effect */
+		margin: 0 auto -80px auto; /* -80px is to up the image a little */
+		position: relative; /* Its to works with margin without change text position */
+		top: -80px; /* Effect to up the text near the image */
+		border: 6px solid rgba(255, 255, 255, .8); /* border image effects */
+	}
+	/* TGO End: Rules together to form the image effects */
+
+	&__title {
+		color: $mainBlue;
+		text-align: center;
+		font-size: 1.5rem;
+		font-weight: 500;
+		margin: 0;
+	}
+
+	&__subtitle {
+		color: $mainOrange;
+		text-align: center;
+		font-weight: 400;
+		font-size: 0.9375rem;
+		margin: .25rem 0 1rem 0;
+	}
+}
