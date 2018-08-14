@@ -1,2 +1,5 @@
-require('./gulp/tasks/styles'); // Notice!!! Do not use extention .js //
-require('./gulp/tasks/watch'); // Notice!!! Do not use extention .js //
+ // TGO: Notice!!! Do not use extention .js //
+
+require('./gulp/tasks/styles');
+require('./gulp/tasks/watch');
+require('./gulp/tasks/sprites');

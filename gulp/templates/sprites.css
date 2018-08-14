@@ -1,0 +1,24 @@
+/* TGO Start: It will contain the rules to generate sprite positions
+	   - Do not edit modules/_sprite directly as it is generated automatcally by gulp
+	     Instead edit gulp/templates/sprite
+	   - Mustache variables are a method os sprite package;
+	   - Content into shapes will loop for every icon you have;
+	   - outer is a method of sprite package;
+	   - 3 mustache is for get the file into the folder;
+   	   - Position is the method to sprite the positions into css;
+   	   - {{first}} will execute the loop only to the first icon;
+   TGO End: */
+
+{{#shapes}}
+	{{#first}}
+		.icon {
+			background-image: url('/assets/images/sprites/{{{sprite}}}');
+		}
+	{{/first}}
+
+	.icon--{{base}} {
+		width: {{width.outer}}px;
+		height: {{height.outer}}px;
+		background-position: {{position.relative.xy}};
+	}
+{{/shapes}}
