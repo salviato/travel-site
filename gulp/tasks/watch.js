@@ -12,15 +12,23 @@ gulp.task('watch', function() {
 	});
 
 	watch('./app/index.html', function() {
-		browserSync.reload() // TGO reload() method!!! //
+		browserSync.reload(); // TGO reload() method!!! //
 	});
 
 	watch('./app/assets/styles/**/*.css', function() {
 		gulp.start('cssInject');
+	});
+
+	watch('./app/assets/scripts/**/*.js', function() {
+		gulp.start('scriptsRefresh');
 	});
 });
 
 gulp.task('cssInject', ['styles'], function() {
 	return gulp.src('./app/temp/styles/styles.css')
 		.pipe(browserSync.stream());
+});
+
+gulp.task('scriptsRefresh', ['scripts'], function() { // TGO: scripts task is in scripts.js //
+	browserSync.reload();
 });

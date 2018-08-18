@@ -493,6 +493,7 @@ a {
 	}
 
 .large-hero__text-content {
+		padding-top: 88px; /* TGO: Because of the header construction */
 		position: absolute;
 		top: 50%;   /* TGO Start: Its the center element commands */ 
 		-webkit-transform: translateY(-50%); 
@@ -500,6 +501,13 @@ a {
 		left: 0;
 		width: 100%;
 		text-align: center;
+	}
+
+@media (min-width: 800px) {
+
+.large-hero__text-content {
+			padding-top: 60px
+	}
 	}
 
 .large-hero__title {
@@ -1162,5 +1170,247 @@ a {
 			display: inline;
 			margin-bottom: 0;
 			margin-right: 1.4rem
+	}
+	}
+
+.site-header {
+	padding: 10px 0;
+	position: absolute; /* TGO Start: Rule to display the header and the image togheter */
+	width: 100%; /* TGO: Necessary because display block only occupate part of the space */
+	z-index: 2; /* TGO End: Z-index is the level the content will be displayed */
+	-webkit-transition: background-color .3s ease-out;
+	transition: background-color .3s ease-out;
+}
+
+/* TGO: Its to appear the menu background gradually */
+
+.site-header--is-expanded {
+		background-color: rgba(47,85,114, .55);
+	}
+
+@media (min-width: 800px) {
+
+.site-header {
+		background-color: rgba(47,85,114, .3)
+}
+	}
+
+@media (min-width: 800px) {
+
+.site-header__btn-container {
+			float: right /* TGO: Position the btn to the right side of the screen */
+	}
+	}
+
+.site-header__logo {
+		position: absolute;
+		top: 0; /* TGO: Necessary bacause of the padding of the site-header section */
+		left: 50%; /* TGO: Rule to center the content into small screens */
+		-webkit-transform: translateX(-50%) scale(.8);
+		        transform: translateX(-50%) scale(.8);  /* TGO: Rule to center the content into small screens / scale is to reduce the image for 80% of the size */
+		-webkit-transform-origin: 50% 0;
+		        transform-origin: 50% 0; /* TGO: This will change the center of the image considered to calculate the scale */
+		background-color: #2f5572;
+		padding: 25px 36px;
+	}
+
+@media (min-width: 800px) {
+
+.site-header__logo { /* TGO: Rules to remove the centered logo view of small screens */
+			left: auto;
+			-webkit-transform: translateX(0);
+			        transform: translateX(0)
+	}
+	}
+
+.site-header__logo__graphic {
+		text-indent: -9999px; /* TGO: Rule to take off the defaut html text because of uses a sprite file */
+	}
+
+.site-header__menu-icon {
+		width: 20px;
+		height: 19px;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		z-index: 10;
+
+	}
+
+/* TGO: Rule to position the menu icon above the menu effects */
+
+@media (min-width: 800px) {
+
+.site-header__menu-icon {
+			display: none
+
+	}
+	}
+
+.site-header__menu-icon::before { /* TGO: This property will get the element before the &__middle */
+			content: ""; /* TGO: Necessary to activate the ::before rule */
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: #FFF;
+			-webkit-transform-origin: 0 0;
+			        transform-origin: 0 0; /* TGO: Changing the center of the element to the left (by default is 50% 50%) */
+			-webkit-transition: -webkit-transform .3s ease-out;
+			transition: -webkit-transform .3s ease-out;
+			transition: transform .3s ease-out;
+			transition: transform .3s ease-out, -webkit-transform .3s ease-out; /* TGO: The animation */
+		}
+
+.site-header__menu-icon__middle {
+			position: absolute;
+			top: 8px;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: #FFF;
+			-webkit-transition: all .3s ease-out;
+			transition: all .3s ease-out;
+			-webkit-transform-origin: 0 50%;
+			        transform-origin: 0 50%; /* TGO: Change details, vertically on the left horizontally centered */
+		}
+
+.site-header__menu-icon::after {  /* TGO: This property will get the element after the &__middle */
+			content: ""; /* TGO: Necessary to activate the ::before rule */
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: #FFF;
+			-webkit-transform-origin: 0 100%;
+			        transform-origin: 0 100%; /* TGO: This transform take 0 to the left and 100% to the bottom */
+			-webkit-transition: -webkit-transform .3s ease-out;
+			transition: -webkit-transform .3s ease-out;
+			transition: transform .3s ease-out;
+			transition: transform .3s ease-out, -webkit-transform .3s ease-out
+		}
+
+.site-header__menu-icon--close-x::before {
+			-webkit-transform: rotate(45deg) scaleX(1.25);
+			        transform: rotate(45deg) scaleX(1.25); /* TGO: This rule is to rotate the top bar of the menu */
+		}
+
+.site-header__menu-icon--close-x .site-header__menu-icon__middle { /* TGO: This select is because there is no icon close x to the middle */
+			opacity: 0;
+			-webkit-transform: scaleX(0);
+			        transform: scaleX(0); /* TGO: Menu effect */
+		}
+
+.site-header__menu-icon--close-x::after {
+			-webkit-transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+			        transform: rotate(-45deg) scaleX(1.25) translateY(1px); /* Translate take the bar 1 px down os screen */
+		}
+
+.site-header__menu-content {
+		opacity: 0; /* TGO Start: Rules to control the effect of menu content to appear and desappear */
+		-webkit-transition: all .3s ease-out;
+		transition: all .3s ease-out; /* TGO: Consider to transition all properties */
+		-webkit-transform: scale(1.2);
+		        transform: scale(1.2); /* TGO: Animate the scale of the elements */
+		position: relative;
+		z-index: -10; /* TGO End: End effect control rules */
+		padding-top: 90px;
+		text-align: center;
+	}
+
+@media (min-width: 800px) {
+
+.site-header__menu-content {
+			opacity: 1;
+			z-index: 1;
+			padding-top: 0;
+			-webkit-transform: scale(1);
+			        transform: scale(1)
+	}
+	}
+
+.site-header__menu-content--is-visible {
+			opacity: 1;
+			z-index: 1;
+			-webkit-transform: scale(1);
+			        transform: scale(1);
+		}
+
+.primary-nav {
+	padding-top: 10px;
+	/* TGO End */
+}
+
+@media (min-width: 800px) {
+
+.primary-nav {
+		padding-top: 0
+}
+	}
+
+@media (min-width: 800px) {
+
+.primary-nav--pull-right {
+			float: right
+	}
+	}
+
+/* TGO Start: Generic rules because this part belongs only to the header part */
+
+.primary-nav ul {
+		margin: 0;
+		padding: 0; /* TGO: Because the float left into li object */
+	}
+
+.primary-nav ul::after {
+		content: "";
+		clear: both;
+		display: table;
+	}
+
+.primary-nav li {
+		list-style: none; /* TGO: Remove the defaut bullets of the list */
+		padding-right: 7px; /* Because the last is little permitting menu stay in the same line */
+		display: inline-block;
+	}
+
+@media (min-width: 800px) {
+
+.primary-nav li {
+			float: left; /* TGO: Combined with clearfix above */
+			display: block;
+			padding-right: 20px
+	}
+	}
+
+.primary-nav li:last-child { /* TGO: This is to permit the last item stay into the same line of the menu */
+		padding-right: 0;
+	}
+
+@media (min-width: 800px) {
+
+.primary-nav li:last-child {
+			padding-right: 20px
+	}
+	}
+
+.primary-nav a {
+		color: #FFF;
+		font-weight: 300;
+		text-decoration: none; /* TGO: Remove the defaut line below the links */
+		display: block;
+		padding: 5px 8px;
+		font-size: .8rem;
+		background-color: rgba(47,85,114, .5);
+	}
+
+@media (min-width: 800px) {
+
+.primary-nav a {
+			padding: 12px 0;
+			font-size: 1rem;
+			background-color: transparent
 	}
 	}

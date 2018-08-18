@@ -1,0 +1,58 @@
+.primary-nav {
+	padding-top: 10px;
+
+	@mixin atMedium {
+		padding-top: 0;
+	}
+	
+	&--pull-right {
+
+		@mixin atMedium {
+			float: right;
+		}
+	}
+
+	/* TGO Start: Generic rules because this part belongs only to the header part */
+	ul {
+		margin: 0;
+		padding: 0;
+		@mixin clearfix; /* TGO: Because the float left into li object */
+	}
+
+	li {
+		list-style: none; /* TGO: Remove the defaut bullets of the list */
+		padding-right: 7px; /* Because the last is little permitting menu stay in the same line */
+		display: inline-block;
+
+		@mixin atMedium {
+			float: left; /* TGO: Combined with clearfix above */
+			display: block;
+			padding-right: 20px
+		}
+	}
+
+	li:last-child { /* TGO: This is to permit the last item stay into the same line of the menu */
+		padding-right: 0;
+
+		@mixin atMedium {
+			padding-right: 20px;
+		}
+	}
+
+	a {
+		color: #FFF;
+		font-weight: 300;
+		text-decoration: none; /* TGO: Remove the defaut line below the links */
+		display: block;
+		padding: 5px 8px;
+		font-size: .8rem;
+		background-color: rgba($mainBlue, .5);
+
+		@mixin atMedium {
+			padding: 12px 0;
+			font-size: 1rem;
+			background-color: transparent;
+		}
+	}
+	/* TGO End */
+}

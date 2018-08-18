@@ -1,0 +1,129 @@
+.site-header {
+	padding: 10px 0;
+	position: absolute; /* TGO Start: Rule to display the header and the image togheter */
+	width: 100%; /* TGO: Necessary because display block only occupate part of the space */
+	z-index: 2; /* TGO End: Z-index is the level the content will be displayed */
+	transition: background-color .3s ease-out; /* TGO: Its to appear the menu background gradually */
+	
+	&--is-expanded {
+		background-color: rgba($mainBlue, .55);
+	}
+
+	@mixin atMedium {
+		background-color: rgba($mainBlue, .3);
+	}
+
+	&__btn-container {
+
+		@mixin atMedium {
+			float: right; /* TGO: Position the btn to the right side of the screen */
+		}
+	}
+
+	&__logo {
+		position: absolute;
+		top: 0; /* TGO: Necessary bacause of the padding of the site-header section */
+		left: 50%; /* TGO: Rule to center the content into small screens */
+		transform: translateX(-50%) scale(.8);  /* TGO: Rule to center the content into small screens / scale is to reduce the image for 80% of the size */
+		transform-origin: 50% 0; /* TGO: This will change the center of the image considered to calculate the scale */
+		background-color: $mainBlue;
+		padding: 25px 36px;
+
+		@mixin atMedium { /* TGO: Rules to remove the centered logo view of small screens */
+			left: auto;
+			transform: translateX(0);
+		}
+	}
+
+	&__logo__graphic {
+		text-indent: -9999px; /* TGO: Rule to take off the defaut html text because of uses a sprite file */
+	}
+
+	&__menu-icon {
+		width: 20px;
+		height: 19px;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		z-index: 10; /* TGO: Rule to position the menu icon above the menu effects */
+
+		@mixin atMedium {
+			display: none;
+		}
+
+		&::before { /* TGO: This property will get the element before the &__middle */
+			content: ""; /* TGO: Necessary to activate the ::before rule */
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: #FFF;
+			transform-origin: 0 0; /* TGO: Changing the center of the element to the left (by default is 50% 50%) */
+			transition: transform .3s ease-out; /* TGO: The animation */
+		}
+
+		&__middle {
+			position: absolute;
+			top: 8px;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: #FFF;
+			transition: all .3s ease-out;
+			transform-origin: 0 50%; /* TGO: Change details, vertically on the left horizontally centered */
+		}
+
+		&::after {  /* TGO: This property will get the element after the &__middle */
+			content: ""; /* TGO: Necessary to activate the ::before rule */
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: #FFF;
+			transform-origin: 0 100%; /* TGO: This transform take 0 to the left and 100% to the bottom */
+			transition: transform .3s ease-out
+		}
+
+	}
+
+	&__menu-icon--close-x {
+
+		&::before {
+			transform: rotate(45deg) scaleX(1.25); /* TGO: This rule is to rotate the top bar of the menu */
+		}
+
+		.site-header__menu-icon__middle { /* TGO: This select is because there is no icon close x to the middle */
+			opacity: 0;
+			transform: scaleX(0); /* TGO: Menu effect */
+		}
+
+		&::after {
+			transform: rotate(-45deg) scaleX(1.25) translateY(1px); /* Translate take the bar 1 px down os screen */
+		}
+	}
+
+	&__menu-content {
+		opacity: 0; /* TGO Start: Rules to control the effect of menu content to appear and desappear */
+		transition: all .3s ease-out; /* TGO: Consider to transition all properties */
+		transform: scale(1.2); /* TGO: Animate the scale of the elements */
+		position: relative;
+		z-index: -10; /* TGO End: End effect control rules */
+		padding-top: 90px;
+		text-align: center;
+
+		@mixin atMedium {
+			opacity: 1;
+			z-index: 1;
+			padding-top: 0;
+			transform: scale(1);
+		}
+
+		&--is-visible {
+			opacity: 1;
+			z-index: 1;
+			transform: scale(1);
+		}
+	}
+}
