@@ -10,7 +10,12 @@
 	}
 
 	@mixin atMedium {
+		position: fixed; /* TGO: Fixed means that when scrool the page, the element stays fixed on screen */
 		background-color: rgba($mainBlue, .3);
+
+		&--dark {
+			background-color: rgba(23, 51, 72, .85); /* TGO: Darker blue */
+		}
 	}
 
 	&__btn-container {
@@ -25,6 +30,7 @@
 		top: 0; /* TGO: Necessary bacause of the padding of the site-header section */
 		left: 50%; /* TGO: Rule to center the content into small screens */
 		transform: translateX(-50%) scale(.8);  /* TGO: Rule to center the content into small screens / scale is to reduce the image for 80% of the size */
+		transition: transform .3s ease-out; /* TGO: This rule is to create the transition to the site-header-dark property below */
 		transform-origin: 50% 0; /* TGO: This will change the center of the image considered to calculate the scale */
 		background-color: $mainBlue;
 		padding: 25px 36px;
@@ -32,6 +38,10 @@
 		@mixin atMedium { /* TGO: Rules to remove the centered logo view of small screens */
 			left: auto;
 			transform: translateX(0);
+
+			.site-header--dark & { /* TGO: This selector will get the logo only when dark is activate, & is to point the logo class */
+				transform: scale(.57);
+			}
 		}
 	}
 

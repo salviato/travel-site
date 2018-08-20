@@ -52,6 +52,10 @@
 			padding: 12px 0;
 			font-size: 1rem;
 			background-color: transparent;
+
+			&.is-current-link { /* TGO: Class created in the javascript */
+				color: #fabb69;
+			}
 		}
 	}
 	/* TGO End */
