@@ -6,6 +6,7 @@ import smoothScroll from 'jquery-smooth-scroll';
 class StickyHeader {
 
 	constructor() {
+		this.lazyImages = $('.lazyload'); // TGO: Lazy load avoinding conflict with waypoits //
 		this.siteHeader = $(".site-header");
 		this.headerTriggerElement = $(".large-hero__title");
 		this.createHeaderWaypoint();
@@ -13,6 +14,14 @@ class StickyHeader {
 		this.headerLinks = $(".primary-nav a");
 		this.createPageSectionWaypoints();
 		this.addSmoothScrolling();
+		this.refreshWaypoints();
+	}
+
+	// TGO: Function to make waypoint updated every lazyload execution, avoinding conflict //
+	refreshWaypoints() {
+		this.lazyImages.on('load', function() { // TGO: parameters 1: event "load", 2: action "function()" //
+			Waypoint.refreshAll(); // TGO: Method refresh all of jquery //
+		});
 	}
 
 	addSmoothScrolling() { // TGO: Method to smooth the scroll animation. Its a npm package //

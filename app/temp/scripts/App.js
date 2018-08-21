@@ -11192,7 +11192,8 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); // TGO: Kicknote: There are a waypoint vs lazyload conflict rule in the StickyHeader.js file. Its replied to this file because the waypoits targer are global in the page //
+
 // TGO: Waypoints is necessary to tell the specific folder to import //
 
 
@@ -11286,6 +11287,7 @@ var StickyHeader = function () {
 	function StickyHeader() {
 		_classCallCheck(this, StickyHeader);
 
+		this.lazyImages = (0, _jquery2.default)('.lazyload'); // TGO: Lazy load avoinding conflict with waypoits //
 		this.siteHeader = (0, _jquery2.default)(".site-header");
 		this.headerTriggerElement = (0, _jquery2.default)(".large-hero__title");
 		this.createHeaderWaypoint();
@@ -11293,9 +11295,21 @@ var StickyHeader = function () {
 		this.headerLinks = (0, _jquery2.default)(".primary-nav a");
 		this.createPageSectionWaypoints();
 		this.addSmoothScrolling();
+		this.refreshWaypoints();
 	}
 
+	// TGO: Function to make waypoint updated every lazyload execution, avoinding conflict //
+
+
 	_createClass(StickyHeader, [{
+		key: 'refreshWaypoints',
+		value: function refreshWaypoints() {
+			this.lazyImages.on('load', function () {
+				// TGO: parameters 1: event "load", 2: action "function()" //
+				Waypoint.refreshAll(); // TGO: Method refresh all of jquery //
+			});
+		}
+	}, {
 		key: 'addSmoothScrolling',
 		value: function addSmoothScrolling() {
 			// TGO: Method to smooth the scroll animation. Its a npm package //

@@ -1,3 +1,5 @@
+// TGO: Kicknote: There are a waypoint vs lazyload conflict rule in the StickyHeader.js file. Its replied to this file because the waypoits targer are global in the page //
+
 import $ from 'jquery';
 // TGO: Waypoints is necessary to tell the specific folder to import //
 	import waypoints from '../../../../node_modules/waypoints/lib/noframework.waypoints';
