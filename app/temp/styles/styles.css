@@ -594,6 +594,10 @@ a {
 		max-width: 976px;
 	}
 
+.wrapper--narrow { /* TGO: Used in get in touch window */
+		max-width: 470px;
+	}
+
 /* TGO Start: This atMidium is not used but stay here for the future */
 
 .wrapper--no-padding-until-medium {
@@ -946,6 +950,11 @@ a {
 
 .section-title--blue {
 		color: #2f5572;
+	}
+
+.section-title--less-margin { /* TGO: Used in get in touch window */
+		margin-top: 0; /* TGO: To positioning the modal element on the center */
+		margin-bottom: 1.3rem;
 	}
 
 /* TGO: Icon rules with the mixin plays together to centralize icon in small screen
@@ -1446,3 +1455,94 @@ a {
 		-webkit-transform: scale(1);
 		        transform: scale(1);
 	}
+
+.modal {
+	position: fixed;
+	z-index: 5;
+	background-color: rgba(255, 255, 255, .94);
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	-webkit-transform: scale(1.2);
+	        transform: scale(1.2);
+	-webkit-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+	opacity: 0; /* TGO: Keep the element not viewed */
+	visibility: hidden;
+}
+
+/* TGO: Its used to hidden the links positioned on screen complementing opacity 0 */
+
+.modal--is-visible {
+		-webkit-transform: scale(1);
+		        transform: scale(1);
+		opacity: 1;
+		visibility: visible;
+	}
+
+.modal__inner {
+		position: absolute;
+		width: 100%; /* TGO: To keep the size of the element and centered */
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		        transform: translateY(-50%); /* TGO: To complement the top rule for positioning */
+	}
+
+.modal__description {
+		text-align: center;
+		font-size: 1.5rem;
+		font-weight: 300;
+		line-height: 1.65; /* TGO: This is the space between the lines */
+	}
+
+.modal__close {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		font-size: 2rem;
+		-webkit-transform: scaleX(1.2);
+		        transform: scaleX(1.2);
+		-webkit-transform-origin: 100% 0;
+		        transform-origin: 100% 0; /* TGO: To move the center of the image bacause of the transform scaleX. Horizontaly 100% Vertically 0 */
+		color: #2f5572;
+		cursor: pointer;
+	}
+
+/* TGO: Its to put the pointer link when hover the X */
+
+.modal__close:hover {
+			color: #d59541;
+		}
+
+.social-icons {
+	text-align: center;
+}
+
+.social-icons__icon {
+		background-color: #d59541;
+		display: inline-block; /* TGO: Its just displayed if stay inline-block */
+		margin: 0 5px 5px 5px; /* TGO: To put some space between the two lines of links */
+		width: 33%; /* TGO: To stay only two icons per line */
+		height: 72px;
+		position: relative;
+	}
+
+/* TGO: Because the element child below has position absolute */
+
+@media (min-width: 530px) {
+
+.social-icons__icon {
+			width: 72px;
+			margin: 0 5px
+	}
+	}
+
+.social-icons__icon .icon { /* TGO: This will select any icon into icon section above */
+			display: block; /* TGO: Its just displayed if block */
+			position: absolute; /* TGO: to positioning the icons cartoons */
+			top: 50%;
+			left: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			        transform: translate(-50%, -50%); /* TGO: Property to complete the top and left rule. Center the elements */
+		}

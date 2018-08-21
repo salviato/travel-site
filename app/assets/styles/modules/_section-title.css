@@ -15,6 +15,11 @@
 		color: $mainBlue;
 	}
 
+	&--less-margin { /* TGO: Used in get in touch window */
+		margin-top: 0; /* TGO: To positioning the modal element on the center */
+		margin-bottom: 1.3rem;
+	}
+
 	/* TGO: Icon rules with the mixin plays together to centralize icon in small screen
 			and get spaces properties on large screens */
 	&__icon {

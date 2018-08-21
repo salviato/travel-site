@@ -1,0 +1,25 @@
+.social-icons {
+	text-align: center;
+
+	&__icon {
+		background-color: $mainOrange;
+		display: inline-block; /* TGO: Its just displayed if stay inline-block */
+		margin: 0 5px 5px 5px; /* TGO: To put some space between the two lines of links */
+		width: 33%; /* TGO: To stay only two icons per line */
+		height: 72px;
+		position: relative; /* TGO: Because the element child below has position absolute */
+
+		@mixin atSmall {
+			width: 72px;
+			margin: 0 5px;
+		}
+
+		.icon { /* TGO: This will select any icon into icon section above */
+			display: block; /* TGO: Its just displayed if block */
+			position: absolute; /* TGO: to positioning the icons cartoons */
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%); /* TGO: Property to complete the top and left rule. Center the elements */
+		}
+	}
+}

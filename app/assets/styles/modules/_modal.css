@@ -1,0 +1,48 @@
+.modal {
+	position: fixed;
+	z-index: 5;
+	background-color: rgba(255, 255, 255, .94);
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	transform: scale(1.2);
+	transition: all .3s ease-out;
+	opacity: 0; /* TGO: Keep the element not viewed */
+	visibility: hidden; /* TGO: Its used to hidden the links positioned on screen complementing opacity 0 */
+
+	&--is-visible {
+		transform: scale(1);
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&__inner {
+		position: absolute;
+		width: 100%; /* TGO: To keep the size of the element and centered */
+		top: 50%;
+		transform: translateY(-50%); /* TGO: To complement the top rule for positioning */
+	}
+
+	&__description {
+		text-align: center;
+		font-size: 1.5rem;
+		font-weight: 300;
+		line-height: 1.65; /* TGO: This is the space between the lines */
+	}
+
+	&__close {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		font-size: 2rem;
+		transform: scaleX(1.2);
+		transform-origin: 100% 0; /* TGO: To move the center of the image bacause of the transform scaleX. Horizontaly 100% Vertically 0 */
+		color: $mainBlue;
+		cursor: pointer; /* TGO: Its to put the pointer link when hover the X */
+
+		&:hover {
+			color: $mainOrange;
+		}
+	}
+}
