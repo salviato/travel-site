@@ -7,12 +7,17 @@
 	   - 3 mustache is for get the file into the folder;
    	   - Position is the method to sprite the positions into css;
    	   - {{first}} will execute the loop only to the first icon;
+   	   - Attention for the svg2png configuration with modernizr (class = .no-svg);
    TGO End: */
 
 {{#shapes}}
 	{{#first}}
 		.icon {
 			background-image: url('/assets/images/sprites/{{{sprite}}}');
+		}
+
+		.no-svg .icon { /* TGO: no-svg is a class identified from modernizr. Its config to send png instead svg */
+			background-image: url('/assets/images/sprites/{{#replaceSvgWithPng}}{{{sprite}}}{{/replaceSvgWithPng}}'); /* TGO: The filter "replaceSvgWithPng" needs to be opened and closed (many "{{}}"). Is created at tasks folder, sprites.js. */
 		}
 	{{/first}}
 
