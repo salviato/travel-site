@@ -102,7 +102,7 @@
 
 	/* TGO Start: This atMidium is not used but stay here for the future */
 	/* TGO Start: Begin equal height rules */
-	&--equal-height-at-medium {
+	.flexbox &--equal-height-at-medium { /* TGO: Selector flexbox is to change for older browsers. Modernizr package */
 		@mixin atMedium {
 			display: flex; /* TGO: It will change all the coluns to stay with same space */
 		}
@@ -112,11 +112,9 @@
 			display: flex; /* TGO: It will change all the coluns to stay with same space */
 		}
 	}
-	/* TGO End: Begin equal height rules */
 	/* TGO End: This atMidium is not used but stay here for the future */
 
-	/* TGO Start: Begin equal height rules */
-	&--equal-height-at-large {
+	.flexbox &--equal-height-at-large { /* TGO: Selector flexbox is to change for older browsers. Modernizr package */
 		@mixin atLarge {
 			display: flex; /* TGO: It will change all the coluns to stay with same space */
 		}

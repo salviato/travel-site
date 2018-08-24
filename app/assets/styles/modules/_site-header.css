@@ -40,7 +40,7 @@
 			transform: translateX(0);
 
 			.site-header--dark & { /* TGO: This selector will get the logo only when dark is activate, & is to point the logo class */
-				transform: scale(.57);
+				transform: scale(.555);
 			}
 		}
 	}
