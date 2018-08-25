@@ -7,7 +7,7 @@ gulp.task('watch', function() {
 	browserSync.init({ // TGO init() method //
 		notify: false, // TGO to avoid boring notify message in the browse //
 		server: {
-			baseDir: "app" // TGO main folder od the html file!!! //
+			baseDir: "app" // TGO main folder of the html file!!! //
 		}
 	});
 

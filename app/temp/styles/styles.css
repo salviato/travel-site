@@ -695,7 +695,8 @@ a {
 @media (min-width: 1010px) {
 			
 			.page-section--testimonials.lazyloaded { /* TGO: Lazyload rule togheter with html file to load the file late */
-				background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+				/* TGO: Update the url address below to deploy at web-hosting, go up two folders */
+				background: url('../../assets/images/testimonials-bg.jpg') top center no-repeat;
 				background-size: cover;
 			}
 	}
@@ -1077,7 +1078,7 @@ a {
 
 /* TGO Start: It will contain the rules to generate sprite positions
 	   - Do not edit modules/_sprite directly as it is generated automatcally by gulp
-	     Instead edit gulp/templates/sprite
+	     Instead edit gulp/templates/sprite;
 	   - Mustache variables are a method os sprite package;
 	   - Content into shapes will loop for every icon you have;
 	   - outer is a method of sprite package;
@@ -1085,14 +1086,16 @@ a {
    	   - Position is the method to sprite the positions into css;
    	   -  will execute the loop only to the first icon;
    	   - Attention for the svg2png configuration with modernizr (class = .no-svg);
+   	   - When deploy to github, change the folders address to go up two folders
+   	     Ex: from /assets/images..., to ../../assets/images...;
    TGO End: */
 
 .icon {
-			background-image: url('/assets/images/sprites/sprite-e79e95cc.svg');
+			background-image: url('../../assets/images/sprites/sprite-e79e95cc.svg');
 		}
 
 .no-svg .icon { /* TGO: no-svg is a class identified from modernizr. Its config to send png instead svg */
-			background-image: url('/assets/images/sprites/sprite-e79e95cc.png'); /* TGO: The filter "replaceSvgWithPng" needs to be opened and closed (many ""). Is created at tasks folder, sprites.js. */
+			background-image: url('../../assets/images/sprites/sprite-e79e95cc.png'); /* TGO: The filter "replaceSvgWithPng" needs to be opened and closed (many ""). Is created at tasks folder, sprites.js. */
 		}
 
 .icon--clear-view-escapes {

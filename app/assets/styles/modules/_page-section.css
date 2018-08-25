@@ -35,7 +35,8 @@
 		@mixin atLarge {
 			
 			&.lazyloaded { /* TGO: Lazyload rule togheter with html file to load the file late */
-				background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+				/* TGO: Update the url address below to deploy at web-hosting, go up two folders */
+				background: url('../../assets/images/testimonials-bg.jpg') top center no-repeat;
 				background-size: cover;
 			}
 		}
